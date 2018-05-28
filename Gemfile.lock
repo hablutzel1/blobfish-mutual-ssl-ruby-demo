@@ -1,3 +1,8 @@
+PATH
+  remote: ../blobfish-mutual-ssl-ruby
+  specs:
+    blobfish-mutual-ssl-ruby (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -192,6 +197,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blobfish-mutual-ssl-ruby!
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15, < 4.0)

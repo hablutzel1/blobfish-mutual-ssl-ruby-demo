@@ -1,0 +1,35 @@
+upstream rails {
+    server unix:/tmp/blobfish-mutual-ssl-ruby-demo.sock;
+}
+
+server {
+    listen 443 ssl;
+    server_name sslmutuo.example.org;
+
+    ssl_certificate /ruta/a/blobfish-mutual-ssl-ruby-demo/archivos_demo/nginx/sslmutuo.example.org.crt;
+    ssl_certificate_key /ruta/a/blobfish-mutual-ssl-ruby-demo/archivos_demo/nginx/sslmutuo.example.org.key;
+
+    root /ruta/a/blobfish-mutual-ssl-ruby-demo;
+    try_files $uri/index.html $uri @rails;
+    location @rails {
+        proxy_pass http://rails;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name interno.sslmutuo.example.org;
+
+    ssl_certificate /ruta/a/blobfish-mutual-ssl-ruby-demo/archivos_demo/nginx/sslmutuo.example.org.crt;
+    ssl_certificate_key /ruta/a/blobfish-mutual-ssl-ruby-demo/archivos_demo/nginx/sslmutuo.example.org.key;
+
+    ssl_client_certificate /ruta/a/blobfish-mutual-ssl-ruby-demo/archivos_demo/nginx/FABRIKAM_CA.crt;
+    ssl_verify_client optional; 
+
+    root /ruta/a/blobfish-mutual-ssl-ruby-demo;
+    try_files $uri/index.html $uri @rails;
+    location @rails {
+        proxy_pass http://rails;
+        proxy_set_header SSL_CLIENT_CERT $ssl_client_cert;
+    }
+}

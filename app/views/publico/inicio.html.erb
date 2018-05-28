@@ -1,0 +1,7 @@
+<% flash.each do |clave, valor| %>
+  <strong style="color: red"><%= valor %></strong>
+<% end %>
+
+<h1>Sección pública</h1>
+<p>Esta es una sección pública y no se requiere autenticarse con un certificado para visitarla.</p>
+<a href="https://interno.sslmutuo.example.org/privado/inicio">Ir a la sección privada</a>
