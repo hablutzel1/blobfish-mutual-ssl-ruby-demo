@@ -43,7 +43,7 @@ Visite https://sslmutuo.example.org/.
 
 ## Guía de integración
 
-Ver el siguiente commit, xxx.
+Ver el siguiente commit, https://github.com/hablutzel1/blobfish-mutual-ssl-ruby-demo/commit/01551454606baf31672ae57576ec5da6120935cf.
 
 ## Certificados de cliente de prueba
 
